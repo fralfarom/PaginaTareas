@@ -1,0 +1,71 @@
+<form [formGroup]="forma">
+
+    <mat-form-field>
+        <input matInput placeholder="Nombre" formControlName="name">
+        <small *ngIf="forma.controls.name.touched && (forma.controls.name.value.length > 20 || forma.controls.name.value.length < 5)" style="color:red">*Minimo 5 caracteres y Maximo 20</small>
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea rows="3" matInput placeholder="Descripción" formControlName="desc"></textarea>
+        <small *ngIf="forma.controls.desc.touched && (forma.controls.desc.value.length > 80 || forma.controls.desc.value.length < 5)" style="color:red">*Minimo 5 caracteres y Maximo 80</small>
+
+    </mat-form-field>
+
+    <button (click)="guardarTarea()" mat-raised-button color="primary">Guardar</button>
+    <button (click)="onNoClick()" mat-raised-button color="warn">Cancelar</button>
+</form>
+
+
+
+
+<!-- <div class="container mb-2">
+    <h1>Agregar Tareas</h1>
+</div>
+<form class="example-form" #f="ngForm" (ngSubmit)="guardarTarea(f)">
+
+    <div class="row container">
+        <div class="col">
+            <label class="mr-1">ID Tarea: </label>
+            <mat-form-field class="ml-4 example-full-width w-75">
+                <mat-label>ID autogenerado</mat-label>
+                <input [(ngModel)]="tarea.id" matInput placeholder="ID Tarea" class="form-control" name=id disabled>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row container">
+        <div class="col">
+            <label class="mr-1">Nombre: </label>
+            <mat-form-field class="ml-4 example-full-width w-75">
+                <mat-label>Tarea</mat-label>
+                <input [(ngModel)]="tarea.name" minlength="3" class="form-control" #name="ngModel" required matInput placeholder="Hacer la cama" name="name">
+            </mat-form-field>
+        </div>
+    </div>
+    <small *ngIf="name.touched && (tarea.name.length < 3 || name.value==undefined)" style="color:red" class="ml-1"> *El largo minimo es de 3 caracteres </small>
+
+    <div class="col">
+        <label class="mr-1">Descripcion: </label>
+        <mat-form-field class="example-full-width w-50">
+            <mat-label>Descripcion</mat-label>
+            <textarea [(ngModel)]="tarea.description" #description="ngModel" class="form-control" minlength="5" required name="description" matInput placeholder="EJ: Cambiar las sabanas de la cama"></textarea>
+        </mat-form-field>
+    </div>
+    <small *ngIf="tarea.description.length<5 && description.touched" style="color:red" class="ml-1"> *El largo minimo es de 5 caracteres </small>
+    <br>
+    <label>Estado:</label>
+    <br>
+    <button *ngIf="tarea.done==false" (click)="tarea.done=true" class="float-left ml-4 w-25" mat-raised-button color="primary">En Curso</button>
+    <button *ngIf="tarea.done==true" (click)="tarea.done=false" class="float-left ml-4 w-25" mat-raised-button color="warn">Terminada</button>
+
+    <hr>
+
+    <div class="mt-5 ml-2 form-group">
+        <button type="submit" class="btn btn-primary w-25">
+            Guardar
+        </button>
+    </div>
+
+
+
+</form> -->
